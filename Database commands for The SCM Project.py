@@ -1,0 +1,11 @@
+create database scm;
+use database scm;
+create table servicecentre(id int primary key, name varchar(50), address varchar(50), email varchar(50), regno int);
+create table productcategory(categoryid int primary key, categoryname varchar(50), description varchar(50));
+create table products(productid int primary key, phone varchar(50), categoryid int, warrantyindays int, price int);
+create table servicetypes(serviceid int primary key, servicename varchar(50), categoryid       int, productid int, charges int, daystoresolve varchar(50));
+create table customers(customerid int primary key, customername varchar(50), email varchar(50), address varchar(50), phone varchar(50));
+create table engineers(engineerid int primary key, ename varchar(50), email varchar(50), categoryid int, dateofjoining varchar(50));
+create table calldata(callrefno int primary key, customerid int, productid int, dateofcall varchar(50), dateofresolve varchar(50), engineerid int);
+create table callclosedata(callrefno int primary key, customerid int, engineerid int, dateofcall varchar(50), dateofclose varchar(50), billamount int);
+create table callfeedback(callrefno int primary key, customerid int, engineerid int, feedback int, remark varchar(50));
